@@ -7,7 +7,7 @@ This branch is primarily for those who'd like to test out/play with new revision
 2 - That's it! You can now use the kernel by loading scfw/kernel.gba from the official firmware.  
 > **_NOTE:_** You can also select the firmware.frm file from within the kernel to flash SCFW to the Supercard's firmware. Because the firmware is minimal and the kernel is loaded from the SD card, updates to the firmware should be rare. You can enjoy kernel updates without updating the firmware.  
 
-## Prerequisites
+## Prerequisites for emulator use
 For Game Boy / Game Boy Color, you need to download your preferred Goomba fork/binary and rename it to:
 - gbc.gba
     - For Game Boy Color emulation
@@ -32,7 +32,7 @@ You should find the ff. files within the scfw folder:
 - smsa.gba
 - pcea.gba
 
-## OBSERVED EMU QUIRKS
+## Observed emulator quirks
 System | Emulator | Quit to firmware | Soft reset | Modular
 :-:|:-:|:-:|:-:|:-:
 Game Boy | Goomba / Super Goomba / Goomba Color | ✔ | ✔ | ✔
