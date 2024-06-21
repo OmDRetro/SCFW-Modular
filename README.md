@@ -1,4 +1,4 @@
-# SCFW-Modular: Custom Firmware & Kernel for Supercard
+# SCFW: Custom Firmware & Kernel for Supercard
 
 SCFW is a custom firmware and kernel for the Supercard SD.
 Currently it is in a preview state with minimum functionality.
