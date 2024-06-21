@@ -1,4 +1,4 @@
-# SCFW: Custom Firmware & Kernel for Supercard
+# SCFW-Modular: Custom Firmware & Kernel for Supercard
 
 SCFW is a custom firmware and kernel for the Supercard SD.
 Currently it is in a preview state with minimum functionality.
@@ -26,12 +26,16 @@ You can also select the firmware.frm file from within the kernel to flash SCFW t
 - Faster loading speeds
 - Cheats(?)
 - Save states(?)
+
 ## Links
 GBATemp discussion thread  
 https://gbatemp.net/threads/scfw-custom-firmware-kernel-for-supercard.647238/  
+SCFW: Bleeding-edge modular kernel branch  
+https://gbatemp.net/threads/scfw-bleeding-edge-modular-kernel-branch.656629/  
 
 ## Credits
 [metroid maniac](https://github.com/metroid-maniac) - Main developer  
 [Archeychen](https://github.com/ArcheyChen) - Early development into another loader, SDHC support  
+[OmDRetro](https://github.com/OmDRetro) - Kernel enhancements, more supported filetypes  
 [RocketRobz](https://github.com/RocketRobz) - Twilightmenu++ "gbapatcher" code for patching Supercard ROMs  
 [SiliconExarch](https://github.com/SiliconExarch) - Finding an old DevkitARM release with a functioning Supercard SD drive
