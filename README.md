@@ -1,6 +1,6 @@
-#  SCFW: Bleeding-edge modular kernel branch
+#  SCFW-Modular: A modular kernel with extra features
 
-This branch is primarily for those who'd like to test out/play with new revisions of the kernel that have yet to be pushed to the main branch.
+This is a experimentation repository before contributing to the main SCFW project.
 
 ## Installation
 1 - Download the current release and copy the scfw folder to the root of your SD card.  
