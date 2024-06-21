@@ -1,12 +1,12 @@
-# SCFW: Custom Firmware & Kernel for Supercard
+# SCFW-Modular: Kernel for Supercard
 
 SCFW is a custom firmware and kernel for the Supercard SD.
-Currently it is in a preview state with minimum functionality.
+Currently it is in a preview state with a few added features.
 
 ## Installation
-Download the current release and copy the scfw folder to the root of your SD card.  
-That's it! You can now use the kernel by loading scfw/kernel.gba from the official firmware.  
-You can also select the firmware.frm file from within the kernel to flash SCFW to the Supercard's firmware. Because the firmware is minimal and the kernel is loaded from the SD card, updates to the firmware should be rare. You can enjoy kernel updates without updating the firmware.
+1 - Download the current release and copy the scfw folder to the root of your SD card.  
+2 - That's it! You can now use the kernel by loading scfw/kernel.gba from the official firmware.  
+> **_NOTE:_** You can also select the firmware.frm file from within the kernel to flash SCFW to the Supercard's firmware. Because the firmware is minimal and the kernel is loaded from the SD card, updates to the firmware should be rare. You can enjoy kernel updates without updating the firmware.  
 
 ## Current features
 - Can browse files
