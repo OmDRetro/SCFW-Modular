@@ -26,12 +26,16 @@ For NEC PC-Engine/TurboGrafx-16, you need to download your preferred PCEAdvance 
 For Watara/Quickshot Supervision, you need to download your preferred WasabiGBA fork/binary and rename it to:
 - wsv.gba
 
+For Neo Geo Pocket / Color, you need to download your preferred NGPGBA fork/binary and rename it to:
+- ngp.gba
+
 Once you have those files, transfer these to the scfw folder.
 You should find the ff. files within the scfw folder:
 - gb.gba
 - gbc.gba
 - kernel.gba
 - nes.gba
+- ngp.gba
 - pcea.gba
 - smsa.gba
 - wsv.gba
@@ -47,6 +51,7 @@ Sega Game Gear | SMSAdvance | ❌ | ✔ | ✔
 Sega Game 1000 / Sega 1000 | SMSAdvance | ❌ | ✔ | ✔
 NEC PC-Engine / TurboGrafx-16 | PCEAdvance | ❌ | ❌ | ✔
 Watara/Quickshot Supervision | WasabiGBA | ⚠ | ✔ | ✔
+Neo Geo Pocket / Color | NGPGBA | ⚠ | ✔ | ✔
 > **_LEGEND:_**
 > > * ⚠ ~ Varies per fork / version OR works with some caveats(buggy). Use with caution
 > > * ❌ ~ Unsupported / Not functioning as intended
@@ -79,6 +84,9 @@ Watara/Quickshot Supervision | WasabiGBA | ⚠ | ✔ | ✔
     - Loads Sega Master System games (*.sms)
 - WasabiGBA support ✅
     - Loads Watara/Quickshot Supervision games (*.sv)
+- NGPGBA support ✅
+    - Loads Neo Geo Pocket games (*.ngp)
+	- Loads Neo Geo Pocket Color games (*.ngc)
  
 ## Planned features
 - NGPGBA
