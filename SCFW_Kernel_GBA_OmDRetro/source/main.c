@@ -132,6 +132,16 @@ struct smsa_h {
 	char name[32];
 };
 
+struct wsv_h{
+	u32 id; //WSV,0x1A
+	u32 filesize;
+	u32 flags;
+	u32 follow;
+	u32 bios; // bit 0 = bios file.
+	u32 res[3];
+	char name[32];
+};
+
 union paging_index {
 	s32 abs;
 	struct {
@@ -165,6 +175,8 @@ bool filter_game(struct dirent *dirent) {
 		return true;
 	if (namelen > 3 && (!strcasecmp(dirent->d_name + namelen - 3, ".gg") || !strcasecmp(dirent->d_name + namelen - 3, ".sg")))
 		return true;
+	if (namelen > 3 && !strcasecmp(dirent->d_name + namelen - 3, ".sv"))
+		return true;
 	return false;
 }
 bool filter_selectable(struct dirent *dirent) {
@@ -186,6 +198,8 @@ bool filter_selectable(struct dirent *dirent) {
 	if (namelen > 3 && !strcasecmp(dirent->d_name + namelen - 3, ".gb"))
 		return true;
 	if (namelen > 3 && (!strcasecmp(dirent->d_name + namelen - 3, ".gg") || !strcasecmp(dirent->d_name + namelen - 3, ".sg")))
+		return true;
+	if (namelen > 3 && !strcasecmp(dirent->d_name + namelen - 3, ".sv"))
 		return true;
 	if (namelen > 4 && !strcasecmp(dirent->d_name + namelen - 4, ".frm"))
 		return true;
@@ -665,7 +679,7 @@ void selectFile(char *path) {
 		total_bytes = 0,bytes = 0;
 		FILE *emu = fopen("/scfw/pcea.gba", "rb");
 		if (!emu) {
-			iprintf("NEC PC Engine/TurboGrafx-16 emu not found!\n");
+			iprintf("PCE emu not found!\n");
 			do {
 				scanKeys();
 				pressed = keysDownRepeat();
@@ -816,6 +830,69 @@ void selectFile(char *path) {
 			fclose(emu);
 			L_Seq(path);
 		}
+	} else if (pathlen > 3 && !strcasecmp(path + pathlen - 3, ".sv")){
+		u32 romsize = 0;
+		total_bytes = 0,bytes = 0;
+		FILE *emu = fopen("/scfw/wsv.gba", "rb");
+		if (!emu) {
+			iprintf("WSV emu not found!\n");
+			do {
+				scanKeys();
+				pressed = keysDownRepeat();
+				VBlankIntrWait();
+			} while (!(pressed & KEY_A));
+		} else {
+			fseek(emu,0,SEEK_END);
+			romsize = ftell(emu);
+			romSize = romsize;
+			fseek(emu, 0, SEEK_SET);
+			iprintf("Loading WasabiGBA\n\n");
+			FlashROM(path,pathlen,emu,romSize,false);
+			struct wsv_h header;
+			header.id = u32conv("VSW") | (0x1A << 24);
+			FILE *rom = fopen(path, "rb");
+			fseek(rom, 0, SEEK_END);
+			romsize = ftell(rom);
+			header.filesize = 0;
+			header.filesize = romsize;
+			header.flags = 0;
+			iprintf("Analyzing ROM...\n\n");
+			header.follow = 0;
+			header.bios = 0;
+			if (strcasestr(basename(path), "[BIOS]")) {
+				header.bios |= (1 << 0);
+				iprintf("BIOS ROM detected\n\n");
+			}
+			else
+			{
+				header.bios |= (0 << 0);
+				iprintf("Non-BIOS ROM\n\n");
+			}
+			header.res[0] = 0;
+			char bname_b[32];
+			strncpy(bname_b, basename(path), sizeof(bname_b) - 1);
+			bname_b[sizeof(bname_b) - 1] = '\0'; 
+			strcpy(header.name, bname_b);
+			FILE *out_h = fopen("/scfw/wsv_h.dat", "wb");
+			fwrite(&header,1, sizeof header, out_h);
+			fclose(out_h);
+			out_h = fopen("/scfw/wsv_h.dat", "rb");
+			fseek(out_h,0,SEEK_END);
+			romsize = ftell(out_h);
+			romSize += romsize;
+			fseek(out_h, 0, SEEK_SET);
+			FlashROM(path,pathlen,out_h,romSize,false);
+			fseek(rom, 0, SEEK_END);
+			romsize = ftell(rom);
+			romSize += romsize;
+			fseek(rom, 0, SEEK_SET);
+			iprintf("Loading ROM:\n\n");
+			FlashROM(path,pathlen,rom,romSize,true);
+			fclose(rom);
+			fclose(out_h);
+			fclose(emu);
+			L_Seq(path);
+		}
 	} else {
 		iprintf("Unrecognised file extension!\n");
 		do {
@@ -829,7 +906,7 @@ void selectFile(char *path) {
 void change_settings(char *path) {
 	for (int cursor = 0;;) {
 		iprintf("\x1b[2J"
-		        "SCFW Kernel v0.5.2-PCEAdv GBA-mode\n\n");
+		        "SCFW Kernel v0.5.2-Wasabi GBA-mode\n\n");
 		
 		iprintf("%cAutosave: %i\n", cursor == 0 ? '>' : ' ', settings.autosave);
 		iprintf("%cSRAM Patch: %i\n", cursor == 1 ? '>' : ' ', settings.sram_patch);
@@ -905,7 +982,7 @@ int main() {
 
 	consoleDemoInit();
 
-	iprintf("SCFW Kernel v0.5.2-PCEAdv GBA-mode\n\n");
+	iprintf("SCFW Kernel v0.5.2-Wasabi GBA-mode\n\n");
 	
 	*(vu16*) 0x04000204	 = 0x40c0;
 	if (overclock_ewram())
