@@ -100,13 +100,16 @@ Famicom Disk System / NSF Player | HVCA | ❌ | ❌ | ‼
     - Loads Neo Geo Pocket games (*.ngp)
 	- Loads Neo Geo Pocket Color games (*.ngc)
 	- Custom BIOS loading support
+- HVCA support ✅
+    - Loads Famicom Disk System games (*.fds)
+	- Loads Nintendo Sound Files (*.nsf)
  
 ## Planned features
 - None so far.
 	
 ## NOTES
 - ⚠Some GBAOAC devices such as the EXEQ Game Box SP don't play nice with flash carts as it doesn't have the same wait time. Thus, ROMs boot faster and the flash cart does not have enough time to prepare. Try to toggle "Boot games through BIOS" each time you exit a GBC/GB game.
-    - Alternative method for GBAOC devices: Create a ROM compilation using and sideload the resulting gba file. This process is tedious, but it works best for clones like these.
+    - Alternative method for GBAOC devices: Create a ROM compilation and sideload the resulting gba file. This process is tedious, but it works best for clones like these.
 - ⚠WARNING: The cart **appears** to not have enough time to properly load both emulator and ROM if you skip the BIOS. It's better to leave that kernel option "Boot games through BIOS" as 1 (on).
 
 ## Links
