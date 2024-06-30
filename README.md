@@ -29,8 +29,13 @@ For Watara/Quickshot Supervision, you need to download your preferred WasabiGBA 
 For Neo Geo Pocket / Color, you need to download your preferred NGPGBA fork/binary and rename it to:
 - ngp.gba
 
+For Home Video Computer Advance, builds require additional work - but after doing so you can rename the binary to:
+- hvca.gba
+    * The base.bin file of hvca requires gbafix and an addiontal step:
+        * _"Like retail games, this emulator tries to increase the ROM speed which supercard is not compatible with, I just disabled that"_ - Metroid Maniac
+
 Once you have those files, transfer these to the scfw folder.
-You should find the ff. files within the scfw folder:
+You should find the ff. within the scfw folder:
 - gb.gba
 - gbc.gba
 - kernel.gba
@@ -39,6 +44,9 @@ You should find the ff. files within the scfw folder:
 - pcea.gba
 - smsa.gba
 - wsv.gba
+- hvca.gba (Custom built version by metroid-maniac)
+- ./hvca/ (folder)
+- ./hvca/mapr/ (folder)
 
 ## Observed emulator quirks
 System | Emulator | Quit to firmware | Soft reset | Modular
@@ -52,7 +60,9 @@ Sega Game 1000 / Sega 1000 | SMSAdvance | ❌ | ✔ | ✔
 NEC PC-Engine / TurboGrafx-16 | PCEAdvance | ❌ | ❌ | ✔
 Watara/Quickshot Supervision | WasabiGBA | ⚠ | ✔ | ✔
 Neo Geo Pocket / Color | NGPGBA | ⚠ | ✔ | ✔
+Famicom Disk System / NSF Player | HVCA | ❌ | ❌ | ‼
 > **_LEGEND:_**
+> > * ‼ ~ Requires some technical know-how to get working / Modular to an extent, but requires additional work.
 > > * ⚠ ~ Varies per fork / version OR works with some caveats(buggy). Use with caution
 > > * ❌ ~ Unsupported / Not functioning as intended
 > > * ✔ ~ Supported / Works as intended
@@ -82,18 +92,21 @@ Neo Geo Pocket / Color | NGPGBA | ⚠ | ✔ | ✔
 	- Loads Game Gear games (*.gg)
 	- Loads Sega Game 1000 / Sega 1000 games (*.sg)
     - Loads Sega Master System games (*.sms)
+	- Custom BIOS loading support
 - WasabiGBA support ✅
     - Loads Watara/Quickshot Supervision games (*.sv)
+	- Custom BIOS loading support
 - NGPGBA support ✅
     - Loads Neo Geo Pocket games (*.ngp)
 	- Loads Neo Geo Pocket Color games (*.ngc)
+	- Custom BIOS loading support
  
 ## Planned features
-- NGPGBA
+- None so far.
 	
 ## NOTES
 - ⚠Some GBAOAC devices such as the EXEQ Game Box SP don't play nice with flash carts as it doesn't have the same wait time. Thus, ROMs boot faster and the flash cart does not have enough time to prepare. Try to toggle "Boot games through BIOS" each time you exit a GBC/GB game.
-    - Alternative method for GBAOC devices: Create a ROM compilation using "goombafront" and sideload the gba file. This process is tedious, but it works best for clones like these.
+    - Alternative method for GBAOC devices: Create a ROM compilation using and sideload the resulting gba file. This process is tedious, but it works best for clones like these.
 - ⚠WARNING: The cart **appears** to not have enough time to properly load both emulator and ROM if you skip the BIOS. It's better to leave that kernel option "Boot games through BIOS" as 1 (on).
 
 ## Links
@@ -102,6 +115,6 @@ Neo Geo Pocket / Color | NGPGBA | ⚠ | ✔ | ✔
 ## Credits
 [metroid maniac](https://github.com/metroid-maniac) - Main developer  
 [Archeychen](https://github.com/ArcheyChen) - Early development into another loader, SDHC support  
-[OmDRetro](https://github.com/OmDRetro) - Kernel enhancements, more supported filetypes  
+[OmDRetro](https://github.com/OmDRetro) - Kernel enhancements, significantly more supported filetypes  
 [RocketRobz](https://github.com/RocketRobz) - Twilightmenu++ "gbapatcher" code for patching Supercard ROMs  
 [SiliconExarch](https://github.com/SiliconExarch) - Finding an old DevkitARM release with a functioning Supercard SD drive  
