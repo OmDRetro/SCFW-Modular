@@ -34,17 +34,21 @@ For Home Video Computer Advance, builds require additional work - but after doin
     * The base.bin file of hvca requires gbafix and an addiontal step:
         * _"Like retail games, this emulator tries to increase the ROM speed which supercard is not compatible with, I just disabled that"_ - Metroid Maniac
 
+For SwanGBA, you need to download OR build your preferred SwanGBA fork/binary along with the needed dependencies and rename it to:
+- bwsc.gba
+
 Once you have those files, transfer these to the scfw folder.
 You should find the ff. within the scfw folder:
+- bwsc.gba
 - gb.gba
 - gbc.gba
+- hvca.gba (Custom built version by metroid-maniac)
 - kernel.gba
 - nes.gba
 - ngp.gba
 - pcea.gba
 - smsa.gba
 - wsv.gba
-- hvca.gba (Custom built version by metroid-maniac)
 - ./hvca/ (folder)
 - ./hvca/mapr/ (folder)
 
@@ -61,6 +65,7 @@ NEC PC-Engine / TurboGrafx-16 | PCEAdvance | ❌ | ❌ | ✔
 Watara/Quickshot Supervision | WasabiGBA | ⚠ | ✔ | ✔
 Neo Geo Pocket / Color | NGPGBA | ⚠ | ✔ | ✔
 Famicom Disk System / NSF Player | HVCA | ❌ | ❌ | ‼
+Bandai WonderSwan/WonderSwan Color / Benesse Pocket Challenge V2 | SwanGBA | ❌ | ✔ | ✔
 > **_LEGEND:_**
 > > * ‼ ~ Requires some technical know-how to get working / Modular to an extent, but requires additional work.
 > > * ⚠ ~ Varies per fork / version OR works with some caveats(buggy). Use with caution
@@ -103,9 +108,11 @@ Famicom Disk System / NSF Player | HVCA | ❌ | ❌ | ‼
 - HVCA support ✅
     - Loads Famicom Disk System games (*.fds)
 	- Loads Nintendo Sound Files (*.nsf)
- 
-## Planned features
-- None so far.
+- SwanGBA support ✅
+    - Loads Benesse Pocket Challenge V2 games (*.pc2)
+	- Loads WonderSwan games (*.ws)
+	- Loads WonderSwan Color games (*.wsc)
+
 	
 ## NOTES
 - ⚠Some GBAOAC devices such as the EXEQ Game Box SP don't play nice with flash carts as it doesn't have the same wait time. Thus, ROMs boot faster and the flash cart does not have enough time to prepare. Try to toggle "Boot games through BIOS" each time you exit a GBC/GB game.
