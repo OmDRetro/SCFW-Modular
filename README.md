@@ -62,8 +62,8 @@ System | Emulator | Quit to firmware | Soft reset | Modular
 Game Boy | Goomba / Super Goomba / Goomba Color | ✔ | ✔ | ✔
 Game Boy Color | Jagoomba Color / Goomba Color | ✔ | ✔ | ✔
 Nintendo Entertainment System / Family Computer | PocketNES | ⚠ | ✔ | ✔
-Sega Master System | SMSAdvance / DrSMS | ❌ | ✔ | ✔
-Sega Game Gear | SMSAdvance / DrSMS | ❌ | ✔ | ✔
+Sega Master System | SMSAdvance / DrSMS | ❌ | ✔ | ✔ / ‼
+Sega Game Gear | SMSAdvance / DrSMS | ❌ | ✔ | ✔ / ‼
 Sega Game 1000 / Sega 1000 | SMSAdvance | ❌ | ✔ | ✔
 NEC PC-Engine / TurboGrafx-16 | PCEAdvance | ❌ | ❌ | ✔
 Watara/Quickshot Supervision | WasabiGBA | ⚠ | ✔ | ✔
