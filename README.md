@@ -37,9 +37,13 @@ For Home Video Computer Advance, builds require additional work - but after doin
 For SwanGBA, you need to download OR build your preferred SwanGBA fork/binary along with the needed dependencies and rename it to:
 - bwsc.gba
 
+For DrSMS, builds require additional work - but after doing so you can rename the binary to:
+- drsms.gba
+
 Once you have those files, transfer these to the scfw folder.
 You should find the ff. within the scfw folder:
 - bwsc.gba
+- drsms.gba
 - gb.gba
 - gbc.gba
 - hvca.gba (Custom built version by metroid-maniac)
@@ -58,8 +62,8 @@ System | Emulator | Quit to firmware | Soft reset | Modular
 Game Boy | Goomba / Super Goomba / Goomba Color | ✔ | ✔ | ✔
 Game Boy Color | Jagoomba Color / Goomba Color | ✔ | ✔ | ✔
 Nintendo Entertainment System / Family Computer | PocketNES | ⚠ | ✔ | ✔
-Sega Master System | SMSAdvance | ❌ | ✔ | ✔
-Sega Game Gear | SMSAdvance | ❌ | ✔ | ✔
+Sega Master System | SMSAdvance / DrSMS | ❌ | ✔ | ✔
+Sega Game Gear | SMSAdvance / DrSMS | ❌ | ✔ | ✔
 Sega Game 1000 / Sega 1000 | SMSAdvance | ❌ | ✔ | ✔
 NEC PC-Engine / TurboGrafx-16 | PCEAdvance | ❌ | ❌ | ✔
 Watara/Quickshot Supervision | WasabiGBA | ⚠ | ✔ | ✔
