@@ -544,6 +544,11 @@ void bwsc_f(char path[], struct bwsc_h *head, const char *out) {
 	}
 }
 
+int ext_length(char *path){
+    char *ext = strrchr(path, '.');
+    return strlen(ext);
+}
+
 void FlashROM(char *path, u32 pathlen, FILE *rom, u32 romsize, bool F_EOL){
 	//Placeholder for now
 	//u32 total_bytes = 0, bytes = 0;
@@ -569,11 +574,11 @@ void FlashROM(char *path, u32 pathlen, FILE *rom, u32 romsize, bool F_EOL){
 		if (settings.autosave) {
 			char savname[PATH_MAX];
 			strcpy(savname, path);
-			strcpy(savname + pathlen - 4, ".sav");
+			strcpy(savname + pathlen - ext_length(path), ".sav");
 			loadSram(savname);
 
 			FILE *lastSaved = fopen("/scfw/lastsaved.txt", "wb");
-			fwrite(savname, pathlen, 1, lastSaved);
+			fwrite(savname, strlen(savname), 1, lastSaved);
 			fclose(lastSaved);
 		}
 
