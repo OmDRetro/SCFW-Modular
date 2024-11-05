@@ -37,7 +37,7 @@ For Home Video Computer Advance, builds require additional work - but after doin
 For SwanGBA, you need to download OR build your preferred SwanGBA fork/binary along with the needed dependencies and rename it to:
 - `bwsc.gba`  
 >[!NOTE]
-> I also build forks so can also find the latest [SwanGBA binaries here](https://github.com/OmDRetro/SwanGBA-SCFW/releases)
+> I also build forks so you can also find the latest [SwanGBA binaries here](https://github.com/OmDRetro/SwanGBA-SCFW/releases)
 
 For DrSMS, builds require additional work - but after doing so you can rename the binary to:
 - `drsms.gba`
